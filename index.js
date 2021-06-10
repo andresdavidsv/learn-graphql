@@ -1,5 +1,7 @@
 'use strict';
 
+require('dotenv').config();
+
 const { makeExecutableSchema } = require('graphql-tools');
 const express = require('express');
 const { graphqlHTTP } = require('express-graphql');
@@ -8,7 +10,7 @@ const { join } = require('path');
 const resolvers = require('./lib/resolvers');
 
 const app = express();
-const port = process.env.port || 4002;
+const port = process.env.DB_PORT || 4003;
 
 // Schema Definition
 const typeDefs = readFileSync(
